@@ -1,0 +1,116 @@
+* {
+    box-sizing: border-box
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #E6F6FC;
+    font-family: sans-serif;
+}
+
+
+/* ------------ container ------------ */
+
+.container {
+    /* padding: 20px; */
+    /* width: 380px; */
+    /* margin: 0 auto; */
+    margin-top: 50px;
+    /* margin-left: 20px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.Umbrella {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 500px;
+    width: 500px;
+}
+
+.logo {
+    position: absolute;
+    bottom: 25px;
+    left: 200px;
+    height: 0px;
+    width: 0px;
+}
+
+.content {
+    margin-top: 100px
+}
+
+.switchColor i {
+    font-size: 40px;
+}
+
+.switchColor i.pink {
+    color: #D9378D;
+}
+
+.switchColor i.blue {
+    color: #30B3E5;
+}
+
+.switchColor i.yellow {
+    color: #FBCF40;
+}
+
+.upload {
+    background-color: #D9378D;
+    border: none;
+    color: #FFF;
+    padding: 15px;
+    width: 300px;
+    font-size: medium;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.uploadIcon {
+    float: left;
+    margin-right: 0.5em;
+    height: 20px;
+    width: 20px;
+    color: #FFF;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.fa-times {
+    float: right;
+    margin-left: 0.5em;
+    height: 20px;
+    width: 20px;
+    color: transparent;
+}
+
+.loader {
+    height: 100px;
+    width: 100px;
+    margin-top: 200px;
+    animation: spin 2s linear infinite;
+    position: absolute;
+    right: 200px;
+}
+
+@media(min-width:768px) {
+    .container {
+        display: flex;
+        justify-content: space-around;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
