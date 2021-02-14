@@ -68,23 +68,21 @@ body {
     font-size: medium;
     font-weight: bold;
     text-align: center;
-    text-decoration: none;
     display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
 }
 
 .uploadIcon {
     float: left;
-    margin-right: 0.5em;
     height: 20px;
     width: 20px;
     color: #FFF;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .fa-times {
     float: right;
-    margin-left: 0.5em;
     height: 20px;
     width: 20px;
     color: transparent;
@@ -99,10 +97,29 @@ body {
     right: 200px;
 }
 
-@media(min-width:768px) {
+@media(max-width:900px) {
     .container {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-evenly;
+        flex-direction: column;
+        align-items: center;
+    }
+    .Umbrella {
+        position: relative;
+        top: 0;
+        left: 0;
+        height: 350px;
+        width: 350px;
+    }
+    .logo {
+        position: absolute;
+        bottom: 25px;
+        left: 130px;
+        height: 0px;
+        width: 0px;
+    }
+    .content {
+        margin-top: 30px
     }
 }
 
