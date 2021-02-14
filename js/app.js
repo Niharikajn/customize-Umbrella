@@ -4,37 +4,42 @@ const setLogo = document.querySelector(".logo");
 const closeIcon = document.querySelector(".fa-times");
 const setLoader = document.getElementById("Image");
 const image = document.getElementById("umbrellaImage");
-const span=document.getElementById("uploadLogo");
+const span = document.getElementById("uploadLogo");
+const switchColor = document.querySelector(".switchColor");
 
 
 
-// change the image according to their color switch
-function ChangeColor(element) {
-    console.log("call", element.id);
-    if (element.id == "pink") {
+// change the image according to their color switch.
+
+switchColor.addEventListener("click", function() {
+    console.log(event.target.attributes.id.value);
+    var clcikedElement = event.target.attributes.id.value;
+    if (clcikedElement == "pink") {
         showLoader();
         setTimeout(function() {
             hideLoader();
         }, 1000)
         image.setAttribute("src", "img/Pink umbrella.png");
-        span.style.backgroundColor= "#D9378D"
+        span.style.backgroundColor = "#D9378D"
 
-    } else if (element.id == "blue") {
+    } else if (clcikedElement == "blue") {
         showLoader();
         setTimeout(function() {
             hideLoader();
         }, 1000)
         image.setAttribute("src", "img/Blue umbrella.png");
-        span.style.backgroundColor= "#30B3E5"
-    } else if (element.id == "yellow") {
+        span.style.backgroundColor = "#30B3E5"
+    } else if (clcikedElement == "yellow") {
         showLoader();
         setTimeout(function() {
             hideLoader();
         }, 1000)
         image.setAttribute("src", "img/Yello umbrella.png");
-        span.style.backgroundColor= "#FBCF40"
+        span.style.backgroundColor = "#FBCF40"
     }
-}
+})
+
+
 
 //to add logo on  umbrella
 getFile.addEventListener("change", function() {
@@ -43,33 +48,32 @@ getFile.addEventListener("change", function() {
     var fileSize = Math.round(file.size / 1024 / 1024);
     if (file && fileSize <= 5) {
         if (file.type = "image/png" || file.type == "image/jpg") {
-            console.log("enter")
             let reader = new FileReader();
             reader.addEventListener("load", function() {
-                console.log('runn', this.result);
                 if (this.result) {
                     showLoader();
                     setTimeout(function() {
                         hideLoader();
-                    }, 1000)
-                    console.log("result data")
+                    }, 2000)
                     updateLogoText.innerText = file.name
                     setLogo.style = "height: 80px;width:80px;"
                     setLogo.setAttribute("src", this.result);
                     closeIcon.style = "color:#000;"
                 } else {
-                    console.log("loader")
                     showLoader();
+                    setTimeout(function() {
+                        hideLoader();
+                    }, 2000)
                 }
 
             })
             reader.readAsDataURL(file);
         } else {
-            alert("file type should be .png or .jpg format")
+            alert("file type should be .png or .jpg format.")
         }
 
     } else {
-        alert("logo should be max size of 5MB")
+        alert("logo should be max size of 5MB.")
     }
 })
 
